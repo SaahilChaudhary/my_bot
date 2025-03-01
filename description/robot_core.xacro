@@ -61,7 +61,11 @@
         <parent link="base_link"/>
         <child link="left_wheel"/>
         <origin xyz="0 0.175 0" rpy="-${pi/2} 0 0"/>
-        <axis xyz="0 0 1"/>
+        <axis xyz="0 0 1">
+            <limit>
+                <effort>50000</effort> <!-- from <wheel_torque> in libgazebo_ros_diff_drive.so.-->
+            </limit>
+        </axis>
     </joint>
 
     <link name="left_wheel">
@@ -89,7 +93,11 @@
         <parent link="base_link"/>
         <child link="right_wheel"/>
         <origin xyz="0 -0.175 0" rpy="${pi/2} 0 0"/>
-        <axis xyz="0 0 -1"/>
+        <axis xyz="0 0 -1">
+            <limit>
+                <effort>50000</effort> <!-- from <wheel_torque> in libgazebo_ros_diff_drive.so.-->
+            </limit>
+        </axis>
     </joint>
 
     <link name="right_wheel">
